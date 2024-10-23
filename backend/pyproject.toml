@@ -2,7 +2,7 @@
 name = "rule-engine"
 version = "0.1.0"
 description = ""
-authors = ["Ayush Anand <36472216+ayushanand18@users.noreply.github.com>"]
+authors = ["Ansh Adarsh"]
 readme = "README.md"
 
 [tool.poetry.dependencies]

@@ -278,6 +278,85 @@ Parser Design: Drawing from my experience with compilers (particularly lex and b
 
 ## Optimization: While implementing the solution, I considered more efficient ways to store and traverse ASTs, proposing improvements like shared nodes for common conditions to save space.
 
+## How to Use
+
+### 1. Creating a Rule
+
+- Navigate to the "Create Rule" section on the homepage.
+- Enter a rule string in the input field. Example:
+```bash
+age > 30 AND salary > 50000
+```
+- Click "Create Rule". If successful, you'll receive a message with the created rule ID.
+
+### 2. Evaluating a Rule
+
+- Navigate to the "Evaluate Rule" section on the homepage.
+- Enter the rule ID you received when creating the rule.
+- Enter a data set (in JSON format) to evaluate the rule. Example:
+```bash
+{
+  "age": 35,
+  "salary": 60000
+}
+```
+- Click "Evaluate Rule". You will see the result of the evaluation (either true or false).
+
+## API Endpoints
+
+### 1. Create Rule
+
+- URL: /api/create_rule
+- Method: POST
+- Request Body:
+```bash
+{
+  "rule": "age > 30 AND salary > 50000"
+}
+```
+- Response:
+Success: 201 Created
+```bash
+{
+  "message": "Rule created successfully",
+  "rule_id": "6144f0e1f3b60f2f5b6a254e"
+}
+```
+Error: 400 Bad Request
+```bash
+{
+  "error": "Rule string is required"
+}
+```
+
+### 2. Evaluate Rule
+
+- URL: /api/evaluate_rule
+- Method: POST
+- Request Body:
+```bash
+{
+  "rule_id": "6144f0e1f3b60f2f5b6a254e",
+  "data": {
+    "age": 35,
+    "salary": 60000
+  }
+```
+- Response:
+Success: 200 OK
+```bash
+{
+  "result": true
+}
+```
+- Error: 404 Not Found
+```bash
+{
+  "error": "Rule not found"
+}
+```
+
+
 ## Feedback
 This assignment was a fantastic blend of three key areas: academic knowledge, algorithmic thinking, and practical software engineering. It challenged me to apply theoretical concepts to a real-world problem, all while keeping performance and design in mind.
 
