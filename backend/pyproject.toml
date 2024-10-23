@@ -1,0 +1,18 @@
+[tool.poetry]
+name = "rule-engine"
+version = "0.1.0"
+description = ""
+authors = ["Ayush Anand <36472216+ayushanand18@users.noreply.github.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+argparse = "^1.4.0"
+fastapi = "^0.111.1"
+sqlalchemy = "^2.0.31"
+psycopg2 = "^2.9.9"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
